@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>토크토크?</h1>
+    <script>
+        const title = document.querySelector("h1");
+        
+        const superEventHandler = {
+            mouseEnterHandler: function () {
+                title.style.color = "orange";
+                title.innerText = "잡아야쥐?"
+            },
+            mouseLeaveHandler: function () {
+                title.style.color = "teal";
+                title.innerText = "못잡겠쥐?"
+            },
+            windowResizeHandler: function () {
+                title.style.color = "purple";
+                title.innerText = "멍충멍충~";
+            },
+            mouseContextHandler: function () {
+                title.style.color = "tomato";
+                title.innerText = "소개소개~";
+            }
+        }
+
+        title.addEventListener("mouseenter", superEventHandler.mouseEnterHandler);
+        title.addEventListener("mouseleave", superEventHandler.mouseLeaveHandler);
+        window.addEventListener("resize", superEventHandler.windowResizeHandler);
+        title.addEventListener("contextmenu", superEventHandler.mouseContextHandler);
+    </script>
+</body>
+</html>
