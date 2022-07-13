@@ -1,25 +1,21 @@
-const guessForm = document.querySelector("#guess-form");
-const set = document.querySelector("#set-form input");
-const guessNumber = document.querySelector("#guess-form input");
-const selectedNumber = document.querySelector("h3:first-child");
-const result = document.querySelector("h3:last-child");
+const h2 = document.querySelector("h2");
 
-function play(event) {
-  event.preventDefault();
-  const setValue = parseInt(set.value);
-  const userNumber = parseInt(guessNumber.value);
-  const machineNumber = 1 + Math.floor(Math.random() * parseInt(setValue));
-  if (setValue < 0) {
-    alert("Please write positive number");
-  } else if (userNumber > setValue) {
-    alert("Please follow the rule");
-  } else if (userNumber === machineNumber) {
-    selectedNumber.innerText = `You chose ${userNumber}, the machine chose ${machineNumber}`;
-    result.innerText = "You Win!";
-  } else {
-    selectedNumber.innerText = `You chose ${userNumber}, the machine chose ${machineNumber}`;
-    result.innerText = "You Lose T_T";
-  }
+function merryChristmas() {
+  const christMas = new Date("2022-12-25");
+  const date = new Date();
+  const dDayCalculator = christMas - date; //자바스크립트는 밀리세컨즈 단위로 나타낸다.
+  const dDay = String(Math.floor(dDayCalculator / (1000 * 60 * 60 * 24)));
+  const dHours = String(
+    Math.floor((dDayCalculator / (1000 * 60 * 60)) % 24)
+  ).padStart(2, "0");
+  const dMinutes = String(
+    Math.floor((dDayCalculator / (1000 * 60)) % 60)
+  ).padStart(2, "0");
+  const dSeconds = String(Math.floor((dDayCalculator / 1000) % 60)).padStart(
+    2,
+    "0"
+  );
+  h2.innerText = `Merry Christ Mas!\n${dDay}:${dHours}:${dMinutes}:${dSeconds}`;
 }
 
-guessForm.addEventListener("submit", play);
+setInterval(merryChristmas, 1000);
